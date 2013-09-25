@@ -1,5 +1,5 @@
-youtube-player
-==============
+Youtube Player & Search
+=======================
 
 A simple one page youtube video search and player. Uses the youtube API.
 
