@@ -56,7 +56,7 @@
        
             var url = 'https://www.googleapis.com/youtube/v3/search',
                 params = {
-                    part:"snippet,contentDetails",
+                    part:"snippet",
                     q: 'Ellie Goulding',
                     type:"video",
                     maxResults: 15,
@@ -101,8 +101,6 @@
                 $.get(url, params, function(data){
                 
                     var items = data.items;
-
-console.log( data )
 
                     $searchContainer.html('');
                     
