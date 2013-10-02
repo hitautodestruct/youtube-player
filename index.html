@@ -56,7 +56,7 @@
        
             var url = 'https://www.googleapis.com/youtube/v3/search',
                 params = {
-                    part:"snippet",
+                    part:"snippet,contentDetails",
                     q: 'Ellie Goulding',
                     type:"video",
                     maxResults: 15,
@@ -64,7 +64,7 @@
                 },
                 // Call for single video details (returns interesting stuff including duration)
                 videoParams = {
-                    part:'contentDetails,statistics',
+                    part:'statistics',
                     id: 'voNEBqRZmBc'
                 }
                 firstVideo = false,
@@ -78,9 +78,7 @@
                     if ( player.getPlayerState() !== 1 ){
                 
                         firstVideo = $searchContainer.find('.list-item:first-child a').data('id');
-                
-                    console.log( autoPlay );
-                
+
                         if ( autoPlay )
                             player.loadVideoById({ videoId: firstVideo });
                         else
@@ -103,8 +101,8 @@
                 $.get(url, params, function(data){
                 
                     var items = data.items;
-                    
-                    console.log(items);
+
+console.log( data )
 
                     $searchContainer.html('');
                     
