@@ -9,7 +9,9 @@
 .list-item{
     height: 17em;
     font-size: .8em;
+    margin-bottom: .2em;
 }
+.logo { height: 1em; }
 </style>
 </head>
 <body>
@@ -35,6 +37,9 @@
             <div class="col-md-6 col-md-pull-6">
                 <div id="search-container" class="search-results row"></div>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12">Project developed by <a href="http://netyou.co.il"><img src="logo.svg" alt="NetYou" class="logo"></a></div>
         </div>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -79,8 +84,6 @@
                 
                         firstVideo = $searchContainer.find('.list-item:first-child a').data('id');
                 
-                    console.log( autoPlay );
-                
                         if ( autoPlay )
                             player.loadVideoById({ videoId: firstVideo });
                         else
@@ -103,15 +106,13 @@
                 $.get(url, params, function(data){
                 
                     var items = data.items;
-                    
-                    console.log(items);
 
                     $searchContainer.html('');
                     
                     items.forEach(function( item ){
                     
                         $searchContainer
-                            .append('<div class="list-item col-md-3"><a href="http://www.youtube.com/embed/'+ item.id.videoId +'" data-id="'+ item.id.videoId +'" class="video"><img src="'+ item.snippet.thumbnails.default.url +'" class="thumb"></a><div>'+ item.snippet.title +'</div></div>');
+                            .append('<div class="list-item col-md-3 col-sm-3 col-xs-6"><a href="http://www.youtube.com/embed/'+ item.id.videoId +'" data-id="'+ item.id.videoId +'" class="video"><img src="'+ item.snippet.thumbnails.default.url +'" class="thumb"></a><div>'+ item.snippet.title +'</div></div>');
                             
                         firstVideo = true;
                     
